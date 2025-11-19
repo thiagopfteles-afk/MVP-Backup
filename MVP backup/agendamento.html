@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento - Saúde do Homem</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/agendamento.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <h1><a href="home.html" style="color: white; text-decoration: none;">Saúde do Homem</a></h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="agendamento.html" class="active">Agendamento</a></li>
+                    <li><a href="artigos.html">Artigos</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+                <div class="auth-buttons-header">
+                    <button class="btn btn-outline" id="headerLoginBtn">Entrar</button>
+                    <button class="btn btn-primary" id="headerCadastroBtn">Cadastrar</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <h1>Agendamento de Consultas</h1>
+                <p>Agende sua consulta de forma rápida e prática com nossos especialistas</p>
+            </div>
+        </section>
+
+        <!-- Abas de Navegação -->
+        <section class="tabs-section">
+            <div class="container">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="novo-agendamento">Novo Agendamento</button>
+                    <button class="tab-btn" data-tab="historico">Histórico</button>
+                    <button class="tab-btn" data-tab="medicos">Médicos</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conteúdo das Abas -->
+        <section class="tab-content-section">
+            <div class="container">
+                <!-- Aba Novo Agendamento -->
+                <div id="novo-agendamento" class="tab-pane active">
+                    <div class="agendamento-container">
+                        <div class="agendamento-form">
+                            <h2>Agendar Nova Consulta</h2>
+                            <form id="formAgendamento">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="medico">Selecione o Médico:</label>
+                                        <select id="medico" required>
+                                            <option value="">Selecione um médico</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="especialidade">Especialidade:</label>
+                                        <select id="especialidade" required>
+                                            <option value="">Selecione a especialidade</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="data">Data da Consulta:</label>
+                                        <input type="date" id="data" required min="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="horario">Horário:</label>
+                                        <select id="horario" required>
+                                            <option value="">Selecione um horário</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="motivo">Motivo da Consulta:</label>
+                                    <textarea id="motivo" rows="4" placeholder="Descreva o motivo da sua consulta..." required></textarea>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary btn-large">Confirmar Agendamento</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="agendamento-info">
+                            <h3>Informações do Agendamento</h3>
+                            <div class="info-card">
+                                <div class="info-item">
+                                    <strong>Médico selecionado:</strong>
+                                    <span id="info-medico">Nenhum</span>
+                                </div>
+                                <div class="info-item">
+                                    <strong>Especialidade:</strong>
+                                    <span id="info-especialidade">Nenhuma</span>
+                                </div>
+                                <div class="info-item">
+                                    <strong>Data:</strong>
+                                    <span id="info-data">--/--/----</span>
+                                </div>
+                                <div class="info-item">
+                                    <strong>Horário:</strong>
+                                    <span id="info-horario">--:--</span>
+                                </div>
+                                <div class="info-item">
+                                    <strong>Status:</strong>
+                                    <span class="status-pendente">Pendente</span>
+                                </div>
+                            </div>
+
+                            <div class="horarios-disponiveis">
+                                <h4>Horários Disponíveis</h4>
+                                <div id="lista-horarios" class="horarios-grid">
+                                    <p>Selecione um médico e uma data para ver os horários disponíveis</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aba Histórico -->
+                <div id="historico" class="tab-pane">
+                    <div class="historico-container">
+                        <h2>Histórico de Agendamentos</h2>
+                        
+                        <div class="filtros">
+                            <div class="form-group">
+                                <label for="filtro-status">Filtrar por Status:</label>
+                                <select id="filtro-status">
+                                    <option value="todos">Todos</option>
+                                    <option value="agendado">Agendado</option>
+                                    <option value="realizado">Realizado</option>
+                                    <option value="cancelado">Cancelado</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="filtro-data">Filtrar por Data:</label>
+                                <input type="month" id="filtro-data">
+                            </div>
+                        </div>
+
+                        <div class="agendamentos-lista" id="lista-agendamentos">
+                            <!-- Lista de agendamentos será preenchida via JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aba Médicos -->
+                <div id="medicos" class="tab-pane">
+                    <div class="medicos-container">
+                        <h2>Nossos Médicos</h2>
+                        <p class="subtitle">Conheça nossa equipe de especialistas</p>
+
+                        <div class="medicos-grid" id="grid-medicos">
+                            <!-- Lista de médicos será preenchida via JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Saúde do Homem</h3>
+                    <p>Seu portal completo de informações sobre saúde masculina</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="agendamento.html">Agendamento</a></li>
+                        <li><a href="artigos.html">Artigos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="calculadoras.html">Calculadoras</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contato</h4>
+                    <p>email@saudedohomem.com</p>
+                    <p>(11) 99999-9999</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Saúde do Homem. Todos os direitos reservados. | Projeto de Faculdade</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Confirmação -->
+    <div id="modalConfirmacao" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Confirmar Agendamento</h2>
+            <div class="confirmacao-info">
+                <p><strong>Médico:</strong> <span id="confirm-medico"></span></p>
+                <p><strong>Especialidade:</strong> <span id="confirm-especialidade"></span></p>
+                <p><strong>Data:</strong> <span id="confirm-data"></span></p>
+                <p><strong>Horário:</strong> <span id="confirm-horario"></span></p>
+                <p><strong>Motivo:</strong> <span id="confirm-motivo"></span></p>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-outline" id="btnCancelar">Cancelar</button>
+                <button class="btn btn-primary" id="btnConfirmar">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Horário Ocupado -->
+    <div id="modalHorarioOcupado" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="horario-ocupado">
+                <div class="icon">⚠️</div>
+                <h2>Horário Indisponível</h2>
+                <p>Este horário já está ocupado. Por favor, selecione outro horário disponível.</p>
+                <button class="btn btn-primary" id="btnEntendido">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/global.js"></script>
+    <script src="js/agendamento.js"></script>
+</body>
+</html>

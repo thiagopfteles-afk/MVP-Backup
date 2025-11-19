@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saúde do Homem - Cuidando da sua saúde</title>
+    <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <h1>Saúde do Homem</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Cuidar da saúde é uma atitude de homem</h2>
+                    <p>Informações, dicas e recursos para ajudar os homens a cuidarem melhor da sua saúde física e mental</p>
+                    
+                    <div class="auth-buttons">
+                        <button class="btn btn-primary" id="loginBtn">Logar</button>
+                        <button class="btn btn-secondary" id="cadastroBtn">Cadastrar-se</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="placeholder-image">
+                        <span>Imagem representativa sobre saúde masculina</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="sobre">
+            <div class="container">
+                <h2>Por que cuidar da saúde masculina?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Prevenção</h3>
+                        <p>Detectar problemas de saúde precocemente aumenta as chances de tratamento eficaz</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Qualidade de Vida</h3>
+                        <p>Homens saudáveis têm mais energia e disposição para o dia a dia</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Longevidade</h3>
+                        <p>Cuidados preventivos podem aumentar a expectativa de vida</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services" id="servicos">
+            <div class="container">
+                <h2>Nossos Serviços</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Informações</h3>
+                        <p>Artigos e guias sobre saúde masculina</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Dicas</h3>
+                        <p>Recomendações práticas para o dia a dia</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Suporte</h3>
+                        <p>Orientação e recursos para cuidados específicos</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contato">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Saúde do Homem</h3>
+                    <p>Projeto de faculdade dedicado à conscientização sobre a saúde masculina</p>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contato</h3>
+                    <p>email@saudedohomem.com</p>
+                    <p>(11) 99999-9999</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Saúde do Homem. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Cadastro -->
+    <div id="cadastroModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Cadastrar-se</h2>
+            <form id="cadastroForm">
+                <div class="form-group">
+                    <label for="nome">Nome completo:</label>
+                    <input type="text" id="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="cadastroEmail">E-mail:</label>
+                    <input type="email" id="cadastroEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="cadastroPassword">Senha:</label>
+                    <input type="password" id="cadastroPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmar senha:</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/global.js"></script>
+</body>
+</html>
